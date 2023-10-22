@@ -23,27 +23,58 @@
     ```shell
     pip install django-static-base
     ```
-2. Modify `settings.py` by adding the app to `INSTALLED_APPS`:
-    ```python
-    INSTALLED_APPS = [
-        # ...
-        "static_base",
-        # ...
-    ]
-    ```
-3. Finally, modify your project `urls.py` with handlers for all errors:
-    ```python
-    # ...other imports...
 
-    urlpatterns = [
-        # ...other urls...
+2. Add `'static_base'` to your `INSTALLED_APPS` setting.
+
+    ``` python title="settings.py"
+    INSTALLED_APPS = [
+        # ...other apps
+        "static_base"
     ]
     ```
-4. Execute Django's command `migrate` inside your project's root:
-    ```shell
-    python manage.py migrate
-    Running migrations:
-      Applying static_base.0001_initial... OK
+
+3. Add the following pre-requisites to your `base.html` template
+
+    ``` html title="base.html"
+    <html>
+    <head>
+    ...
+      <link rel="stylesheet" type="text/css" href="{% static 'base/css/bootstrap.css' %}">
+    ...
+    </head>
+    <body>
+    ...
+      <script type="text/javascript" src="{% static 'base/js/jquery.min.js' %}"></script>
+      <script type="text/javascript" src="{% static 'base/js/bootstrap.min.js' %}"></script>
+      <script type="text/javascript" src="{% static 'base/js/plugins/lazysizes.min.js' %}" async></script>
+    ...
+      <script type="module" src="{% static 'base/js/plugins/instantpage.min.js' %}" defer></script>
+    </body>
+    </html>
+    ```
+
+4. Add all your needed plugins or customization to your `base.html` template or sub-templates used by your project
+
+    ``` html title="base.html"
+    <html>
+    <head>
+    ...
+      <link rel="stylesheet" type="text/css" href="{% static 'base/css/plugins/jquery.smartmenus.bootstrap-4.css' %}">
+    ...
+      <link rel="stylesheet" type="text/css" href="{% static 'base/css/style-btn.css' %}">
+      <link rel="stylesheet" type="text/css" href="{% static 'base/css/color/blue.css' %}">
+    ...
+      <link rel="stylesheet" type="text/css" href="{% static 'base/css/custom.css' %}">
+    ...
+    </head>
+    <body>
+    ...
+      <script type="text/javascript" src="{% static 'base/js/jquery.min.js' %}"></script>
+      <script type="text/javascript" src="{% static 'base/js/bootstrap.min.js' %}"></script>
+    ...
+      <script type="module" src="{% static 'base/js/plugins/instantpage.min.js' %}" defer></script>
+    </body>
+    </html>
     ```
 
 ## Run Example Project
