@@ -1,7 +1,7 @@
 # JavaScript
 
 ## PRE-REQ
-- jquery.min.js - [3.6.0](https://code.jquery.com/jquery/)
+- [jquery.min.js] - [3.7.1](https://code.jquery.com/jquery/)
 - bootstrap.min.js - [4.6.1](https://getbootstrap.com/docs/4.6/getting-started/download/)
 - bootstrap.bundle.min.js (Include Popper) - [4.6.1](https://getbootstrap.com/docs/4.6/getting-started/download/)
     ```html
@@ -10,8 +10,8 @@
     <script src="{% static 'base/js/bootstrap.bundle.min.js' %}"></script>
     ```
 ## 01. SMARTMENUS
-- jquery.smartmenus.min.js - [1.1.1](https://github.com/vadikom/smartmenus/releases)
-- jquery.smartmenus.bootstrap-4.min.js - [1.1.1](https://github.com/vadikom/smartmenus/releases)
+- [jquery.smartmenus.min.js] - [1.2.1](https://github.com/vadikom/smartmenus/releases)
+- [jquery.smartmenus.bootstrap-4.min.js] - [0.1.1](https://github.com/vadikom/smartmenus/releases)
     ```html
     <script src="{% static 'base/js/plugins/jquery.smartmenus.min.js' %}"></script>
     <script src="{% static 'base/js/plugins/jquery.smartmenus.bootstrap-4.min.js' %}"></script>
@@ -169,6 +169,9 @@
     <script src="{% static 'base/js/plugins/popper.min.js' %}"></script>
     ```
 
+[jquery.min.js]: https://code.jquery.com/jquery-3.7.1.min.js
 
 [isotope.pkgd.min.js]: https://github.com/metafizzy/isotope/blob/master/dist/isotope.pkgd.min.js
 [imagesloaded.pkgd.min.js]: https://github.com/desandro/imagesloaded/blob/master/imagesloaded.pkgd.min.js
+[jquery.smartmenus.min.js]: https://github.com/vadikom/smartmenus/blob/master/dist/jquery.smartmenus.min.js
+[jquery.smartmenus.bootstrap-4.min.js]: https://github.com/vadikom/smartmenus/blob/master/dist/addons/bootstrap-4/jquery.smartmenus.bootstrap-4.min.js
