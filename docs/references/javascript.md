@@ -146,11 +146,15 @@
     <script src="{% static 'base/js/plugins/whitespace.min.js' %}"></script>
     ```
 ## 34. REVOLUTION
-- revolution/revolution-addons/filmstrip/js/revolution.addon.filmstrip.min.js
+- jquery.themepunch.tools.min.js
+- jquery.themepunch.revolution.min.js
     ```html
     <script src="{% static 'base/js/plugins/jquery.themepunch.tools.min.js' %}"></script>
     <script src="{% static 'base/js/plugins/jquery.themepunch.revolution.min.js' %}"></script>
     ```
+## 34. REVOLUTION ADDONS (to-do)
+- revolution.addon.filmstrip.min.js
+
 ## 35. LOCAL FORAGE
 - localforage.min.js - [1.10.0](https://github.com/localForage/localForage/releases)
     ```html
