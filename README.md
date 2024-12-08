@@ -16,7 +16,7 @@
 
 ## Requirements
 -   Python 3.8+ supported.
--   Django 3.2+ supported.
+-   Django 4.2+ supported.
 
 ## Setup
 1. Install from **pip**:
