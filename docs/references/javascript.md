@@ -31,7 +31,11 @@
     ```html
     <script src="{% static 'base/js/plugins/picturefill.min.js' %}"></script>
     ```
-## 05. AOS
+## 05. AOS 
+- aos.min.js - [2.3.4](https://github.com/michalsnik/aos/tags)
+    ```html
+    <script src="{% static 'base/js/plugins/aos.min.js' %}"></script>
+    ```
 ## 06. PLYR
 ## 07. WAYPOINTS
 - jquery.waypoints.min.js - [4.0.1](https://github.com/imakewebthings/waypoints/releases)
