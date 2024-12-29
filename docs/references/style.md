@@ -73,3 +73,9 @@
 - iscroll.js - [5.2.0](https://github.com/cubiq/iscroll/releases)
 # 30. FOOTER REVEAL
 # 31. COLLAGEPLUS
+
+# 31. REVOLUTION
+- settings.min.css
+    ```html
+    <link rel="stylesheet" type="text/css" href="{% static 'base/css/plugins/rev-settings.min.css' %}">
+    ```
