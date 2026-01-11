@@ -1,0 +1,65 @@
+name: Static Base Management
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  ci:
+    name: Continuous Integration
+    uses: DLRSP/workflows/.github/workflows/ci.yaml@v1.15.20
+    secrets: inherit
+
+#  lint:
+#    name: Lint Code
+#    uses: DLRSP/workflows/.github/workflows/lint.yaml@v1.15.20
+
+  upgrade-static-files:
+    name: Upgrade Static Files (CSS/JS)
+    needs: [ci, lint]
+    uses: DLRSP/workflows/.github/workflows/upgrade-static-files.yaml@v1.15.20
+    if: |
+      github.ref == 'refs/heads/main' &&
+      (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch')
+    with:
+      upgrade_level: "minor"
+    secrets: inherit
+
+  changelog:
+    name: Changelog & Release Management
+    needs: [ci, lint]
+    uses: DLRSP/workflows/.github/workflows/changelog.yaml@v1.15.20
+    if: |
+      github.ref == 'refs/heads/main' &&
+      github.event_name == 'push' &&
+      (contains(github.event.head_commit.modified, 'changelog.md') ||
+       contains(github.event.head_commit.modified, 'pyproject.toml'))
+    secrets: inherit
+
+  cd-release:
+    name: Build & Release (crea tag e GitHub Release)
+    needs: [ci, lint]
+    uses: DLRSP/workflows/.github/workflows/cd-release.yaml@v1.15.20
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    secrets: inherit
+
+  label-pr:
+    name: Label Pull Request
+    uses: DLRSP/workflows/.github/workflows/labeller-file-based.yaml@v1.15.20
+    if: github.event_name == 'pull_request'
+    secrets: inherit
+
+  rebase-pr:
+    name: Rebase PR on Push
+    uses: DLRSP/workflows/.github/workflows/pr-rebase-on-push.yaml@v1.15.20
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    secrets: inherit
+
+  label-merge-conflicts:
+    name: Label Merge Conflicts
+    uses: DLRSP/workflows/.github/workflows/pr-label-merge-conflicts.yaml@v1.15.20
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    secrets: inherit
