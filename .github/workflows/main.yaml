@@ -20,7 +20,7 @@ jobs:
 
   upgrade-static-files:
     name: Upgrade Static Files (CSS/JS)
-    needs: [ci, lint]
+    needs: ci
     uses: DLRSP/workflows/.github/workflows/upgrade-static-files.yaml@v1.15.27
     if: |
       github.ref == 'refs/heads/main' &&
@@ -31,7 +31,7 @@ jobs:
 
   changelog:
     name: Changelog & Release Management
-    needs: [ci, lint]
+    needs: [ci, upgrade-static-files]
     uses: DLRSP/workflows/.github/workflows/changelog.yaml@v1.15.27
     if: |
       github.ref == 'refs/heads/main' &&
@@ -42,7 +42,7 @@ jobs:
 
   cd-release:
     name: Build & Release (crea tag e GitHub Release)
-    needs: [ci, lint]
+    needs: [ci, upgrade-static-files, changelog]
     uses: DLRSP/workflows/.github/workflows/cd-release.yaml@v1.15.27
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     secrets: inherit
