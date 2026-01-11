@@ -11,7 +11,7 @@ on:
 jobs:
   ci:
     name: Continuous Integration
-    uses: DLRSP/workflows/.github/workflows/ci.yaml@v1.15.27
+    uses: DLRSP/workflows/.github/workflows/ci.yaml@v1.15.28
     secrets: inherit
 
 #  lint:
