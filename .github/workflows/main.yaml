@@ -32,7 +32,7 @@ jobs:
   changelog:
     name: Changelog & Release Management
     needs: [ci, upgrade-static-files]
-    uses: DLRSP/workflows/.github/workflows/changelog.yaml@v1.15.27
+    uses: DLRSP/workflows/.github/workflows/changelog.yaml@v1.15.28
     if: |
       github.ref == 'refs/heads/main' &&
       github.event_name == 'push' &&
