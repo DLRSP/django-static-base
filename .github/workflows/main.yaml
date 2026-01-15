@@ -21,7 +21,7 @@ jobs:
   upgrade-static-files:
     name: Upgrade Static Files (CSS/JS)
     needs: ci
-    uses: DLRSP/workflows/.github/workflows/upgrade-static-files.yaml@v1.15.27
+    uses: DLRSP/workflows/.github/workflows/upgrade-static-files.yaml@v1.15.30
     if: |
       github.ref == 'refs/heads/main' &&
       (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch')
