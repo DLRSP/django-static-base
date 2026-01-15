@@ -9,24 +9,24 @@ on:
   workflow_dispatch:
 
 jobs:
-  ci:
-    name: Continuous Integration
-    uses: DLRSP/workflows/.github/workflows/ci.yaml@v1.15.28
-    secrets: inherit
-
 #  lint:
 #    name: Lint Code
 #    uses: DLRSP/workflows/.github/workflows/lint.yaml@v1.15.20
 
   upgrade-static-files:
     name: Upgrade Static Files (CSS/JS)
-    needs: ci
     uses: DLRSP/workflows/.github/workflows/upgrade-static-files.yaml@v1.15.30
     if: |
       github.ref == 'refs/heads/main' &&
       (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch')
     with:
       upgrade_level: "minor"
+    secrets: inherit
+
+  ci:
+    name: Continuous Integration
+    needs: [upgrade-static-files]
+    uses: DLRSP/workflows/.github/workflows/ci.yaml@v1.15.30
     secrets: inherit
 
   changelog:
@@ -43,24 +43,24 @@ jobs:
   cd-release:
     name: Build & Release (crea tag e GitHub Release)
     needs: [ci, upgrade-static-files, changelog]
-    uses: DLRSP/workflows/.github/workflows/cd-release.yaml@v1.15.27
+    uses: DLRSP/workflows/.github/workflows/cd-release.yaml@v1.15.30
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     secrets: inherit
 
   label-pr:
     name: Label Pull Request
-    uses: DLRSP/workflows/.github/workflows/labeller-file-based.yaml@v1.15.27
+    uses: DLRSP/workflows/.github/workflows/labeller-file-based.yaml@v1.15.30
     if: github.event_name == 'pull_request'
     secrets: inherit
 
   rebase-pr:
     name: Rebase PR on Push
-    uses: DLRSP/workflows/.github/workflows/pr-rebase-on-push.yaml@v1.15.27
+    uses: DLRSP/workflows/.github/workflows/pr-rebase-on-push.yaml@v1.15.30
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     secrets: inherit
 
   label-merge-conflicts:
     name: Label Merge Conflicts
-    uses: DLRSP/workflows/.github/workflows/pr-label-merge-conflicts.yaml@v1.15.27
+    uses: DLRSP/workflows/.github/workflows/pr-label-merge-conflicts.yaml@v1.15.30
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     secrets: inherit
