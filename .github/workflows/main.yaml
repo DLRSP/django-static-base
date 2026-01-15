@@ -15,7 +15,7 @@ jobs:
 
   upgrade-static-files:
     name: Upgrade Static Files (CSS/JS)
-    uses: DLRSP/workflows/.github/workflows/upgrade-static-files.yaml@v1.15.36
+    uses: DLRSP/workflows/.github/workflows/upgrade-static-files.yaml@v1.15.37
     if: |
       github.ref == 'refs/heads/main' &&
       (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch')
@@ -26,13 +26,13 @@ jobs:
   ci:
     name: Continuous Integration
     needs: [upgrade-static-files]
-    uses: DLRSP/workflows/.github/workflows/ci.yaml@v1.15.36
+    uses: DLRSP/workflows/.github/workflows/ci.yaml@v1.15.37
     secrets: inherit
 
   changelog:
     name: Changelog & Release Management
     needs: [ci, upgrade-static-files]
-    uses: DLRSP/workflows/.github/workflows/changelog.yaml@v1.15.36
+    uses: DLRSP/workflows/.github/workflows/changelog.yaml@v1.15.37
     if: |
       github.ref == 'refs/heads/main' &&
       github.event_name == 'push' &&
@@ -49,18 +49,18 @@ jobs:
 
   label-pr:
     name: Label Pull Request
-    uses: DLRSP/workflows/.github/workflows/labeller-file-based.yaml@v1.15.36
+    uses: DLRSP/workflows/.github/workflows/labeller-file-based.yaml@v1.15.37
     if: github.event_name == 'pull_request'
     secrets: inherit
 
   rebase-pr:
     name: Rebase PR on Push
-    uses: DLRSP/workflows/.github/workflows/pr-rebase-on-push.yaml@v1.15.36
+    uses: DLRSP/workflows/.github/workflows/pr-rebase-on-push.yaml@v1.15.37
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     secrets: inherit
 
   label-merge-conflicts:
     name: Label Merge Conflicts
-    uses: DLRSP/workflows/.github/workflows/pr-label-merge-conflicts.yaml@v1.15.36
+    uses: DLRSP/workflows/.github/workflows/pr-label-merge-conflicts.yaml@v1.15.37
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     secrets: inherit
