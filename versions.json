@@ -20,7 +20,7 @@
   "font_awesome_cdn": {
     "css": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/{version}/css/all.min.css"
   },
-  "datatables": "1.13.7",
+  "datatables": "1.10.21",
   "datatables_cdn": {
     "css": "https://cdn.datatables.net/{version}/css/jquery.dataTables.min.css",
     "js": "https://cdn.datatables.net/{version}/js/jquery.dataTables.min.js"

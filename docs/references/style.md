@@ -79,3 +79,11 @@
     ```html
     <link rel="stylesheet" type="text/css" href="{% static 'base/css/plugins/rev-settings.min.css' %}">
     ```
+
+## Available Major Version Upgrades
+
+⚠️ **Note**: The following libraries have major version upgrades available but were not applied:
+
+- **font-awesome**: Currently `6.4.0`, latest major: `7.0.1`
+
+These major versions are available but require manual review due to potential breaking changes.
