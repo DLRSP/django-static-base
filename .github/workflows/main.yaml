@@ -40,12 +40,12 @@ jobs:
        contains(github.event.head_commit.modified, 'pyproject.toml'))
     secrets: inherit
 
-  cd-release:
-    name: Build & Release (crea tag e GitHub Release)
-    needs: [ci, upgrade-static-files, changelog]
-    uses: DLRSP/workflows/.github/workflows/cd-release.yaml@v1.15.32
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-    secrets: inherit
+#  cd-release:
+#    name: Build & Release (crea tag e GitHub Release)
+#    needs: [ci, upgrade-static-files, changelog]
+#    uses: DLRSP/workflows/.github/workflows/cd-release.yaml@v1.15.32
+#    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+#    secrets: inherit
 
   label-pr:
     name: Label Pull Request
