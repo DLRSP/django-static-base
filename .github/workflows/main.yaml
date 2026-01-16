@@ -13,16 +13,6 @@ jobs:
 #    name: Lint Code
 #    uses: DLRSP/workflows/.github/workflows/lint.yaml@v1.15.20
 
-  upgrade-static-files:
-    name: Upgrade Static Files (CSS/JS)
-    uses: DLRSP/workflows/.github/workflows/upgrade-static-files.yaml@v1.15.45
-    if: |
-      github.ref == 'refs/heads/main' &&
-      (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch')
-    with:
-      upgrade_level: "minor"
-    secrets: inherit
-
   ci:
     name: Continuous Integration
     needs: [upgrade-static-files]
@@ -63,4 +53,18 @@ jobs:
     name: Label Merge Conflicts
     uses: DLRSP/workflows/.github/workflows/pr-label-merge-conflicts.yaml@v1.15.45
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    secrets: inherit
+
+  docs:
+    name: Build and Deploy Documentation
+    if: |
+      (github.event_name == 'push' && github.ref == 'refs/heads/main' && 
+       (contains(join(github.event.head_commit.modified, ','), 'docs/') ||
+        contains(join(github.event.head_commit.added, ','), 'docs/') ||
+        contains(join(github.event.head_commit.removed, ','), 'docs/') ||
+        contains(join(github.event.head_commit.modified, ','), 'README.md') ||
+        contains(join(github.event.head_commit.modified, ','), 'CHANGELOG.md') ||
+        contains(join(github.event.head_commit.modified, ','), 'mkdocs.yml'))) ||
+      github.event_name == 'workflow_dispatch'
+    uses: DLRSP/workflows/.github/workflows/docs.yaml@v1.15.45
     secrets: inherit

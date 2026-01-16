@@ -1,0 +1,13 @@
+---
+name: Upgrade Static Files (CSS/JS)
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Runs every Monday at 8:00 UTC
+    - cron: '0 8 * * *'
+
+jobs:
+  upgrade:
+    uses: DLRSP/workflows/.github/workflows/upgrade-static-files.yaml@v1.15.45
+    secrets: inherit
