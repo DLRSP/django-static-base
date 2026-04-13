@@ -65,5 +65,5 @@ jobs:
         contains(join(github.event.head_commit.modified, ','), 'CHANGELOG.md') ||
         contains(join(github.event.head_commit.modified, ','), 'mkdocs.yml'))) ||
       github.event_name == 'workflow_dispatch'
-    uses: DLRSP/workflows/.github/workflows/docs.yaml@v1.15.45
+    uses: DLRSP/workflows/.github/workflows/docs.yaml@v1.15.47
     secrets: inherit
