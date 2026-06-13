@@ -11,17 +11,17 @@ on:
 jobs:
 #  lint:
 #    name: Lint Code
-#    uses: DLRSP/workflows/.github/workflows/lint.yaml@v1.15.20
+#    uses: DLRSP/workflows/lint.yaml@main
 
   ci:
     name: Continuous Integration
-    uses: DLRSP/workflows/.github/workflows/ci.yaml@v1.15.45
+    uses: DLRSP/workflows/ci.yaml@main
     secrets: inherit
 
   changelog:
     name: Changelog & Release Management
     needs: [ci]
-    uses: DLRSP/workflows/.github/workflows/changelog.yaml@v1.16.3
+    uses: DLRSP/workflows/changelog.yaml@main
     if: |
       github.ref == 'refs/heads/main' &&
       github.event_name == 'push' &&
@@ -32,25 +32,25 @@ jobs:
 #  cd-release:
 #    name: Build & Release (crea tag e GitHub Release)
 #    needs: [ci, upgrade-static-files, changelog]
-#    uses: DLRSP/workflows/.github/workflows/cd-release.yaml@v1.15.32
+#    uses: DLRSP/workflows/cd-release.yaml@main
 #    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
 #    secrets: inherit
 
   label-pr:
     name: Label Pull Request
-    uses: DLRSP/workflows/.github/workflows/labeller-file-based.yaml@v1.16.3
+    uses: DLRSP/workflows/labeller-file-based.yaml@main
     if: github.event_name == 'pull_request'
     secrets: inherit
 
   rebase-pr:
     name: Rebase PR on Push
-    uses: DLRSP/workflows/.github/workflows/pr-rebase-on-push.yaml@v1.16.3
+    uses: DLRSP/workflows/pr-rebase-on-push.yaml@main
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     secrets: inherit
 
   label-merge-conflicts:
     name: Label Merge Conflicts
-    uses: DLRSP/workflows/.github/workflows/pr-label-merge-conflicts.yaml@v1.16.3
+    uses: DLRSP/workflows/pr-label-merge-conflicts.yaml@main
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     secrets: inherit
 
@@ -65,5 +65,5 @@ jobs:
         contains(join(github.event.head_commit.modified, ','), 'CHANGELOG.md') ||
         contains(join(github.event.head_commit.modified, ','), 'mkdocs.yml'))) ||
       github.event_name == 'workflow_dispatch'
-    uses: DLRSP/workflows/.github/workflows/docs.yaml@v1.16.3
+    uses: DLRSP/workflows/docs.yaml@main
     secrets: inherit
