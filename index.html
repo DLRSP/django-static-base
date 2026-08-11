@@ -969,12 +969,12 @@
 
   <h1>Quickstart</h1>
 
-<p>Django's application to serve up-to-date common static files (JQuery, Bootstrap, Plugins, ...) as "base" static directory</p>
+<p>Django's application to serve up-to-date common static files (JQuery, Bootstrap, Material Dashboard, Plugins, ...) as "base" static directory</p>
 <hr />
 <h2 id="requirements"><a class="toclink" href="#requirements">Requirements</a></h2>
 <p>These packages are required:</p>
 <ul>
-<li>Python (3.8+)</li>
+<li>Python (3.9+)</li>
 <li>Django (3.2+)</li>
 </ul>
 <p>We <strong>highly recommend</strong> and only officially support the latest patch release of each Python and Django series.</p>
@@ -1038,6 +1038,20 @@
 <span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </code></pre></div>
 </li>
+<li>
+<p>Optional — <strong>Material Dashboard</strong> shell (blog/admin-style layouts). Paths mirror Bootstrap (<code>base/css/…</code>, <code>base/js/…</code>; helpers in <code>base/js/plugins/</code>).</p>
+<div class="highlight"><span class="filename">base_material.html</span><pre><span></span><code><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{% static &#39;base/css/bootstrap.min.css&#39; %}&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{% static &#39;base/css/material-dashboard.css&#39; %}&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons&quot;</span><span class="p">&gt;</span>
+...
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;{% static &#39;base/js/jquery.min.js&#39; %}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;{% static &#39;base/js/bootstrap.min.js&#39; %}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;{% static &#39;base/js/material.min.js&#39; %}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;{% static &#39;base/js/plugins/chartist.min.js&#39; %}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;{% static &#39;base/js/plugins/bootstrap-notify.js&#39; %}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;{% static &#39;base/js/material-dashboard.js&#39; %}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div>
+</li>
 </ol>
 <h2 id="example"><a class="toclink" href="#example">Example</a></h2>
 <p>Let's take a look at a quick example of using this project to build a simple App with <strong>custom error pages</strong>.</p>
@@ -1092,7 +1106,7 @@ SOFTWARE.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2023-10-22
+    2026-08-11
   </span>
 
     
