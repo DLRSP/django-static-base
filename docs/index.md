@@ -1,4 +1,4 @@
-Django's application to serve up-to-date common static files (JQuery, Bootstrap, Plugins, ...) as "base" static directory
+Django's application to serve up-to-date common static files (JQuery, Bootstrap, Material Dashboard, Plugins, ...) as "base" static directory
 
 ---
 
@@ -77,6 +77,21 @@ We **highly recommend** and only officially support the latest patch release of 
       <script type="module" src="{% static 'base/js/plugins/instantpage.min.js' %}" defer></script>
     </body>
     </html>
+    ```
+
+5. Optional — **Material Dashboard** shell (blog/admin-style layouts). Paths mirror Bootstrap (`base/css/…`, `base/js/…`; helpers in `base/js/plugins/`).
+
+    ``` html title="base_material.html"
+    <link rel="stylesheet" href="{% static 'base/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'base/css/material-dashboard.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+    ...
+    <script src="{% static 'base/js/jquery.min.js' %}"></script>
+    <script src="{% static 'base/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'base/js/material.min.js' %}"></script>
+    <script src="{% static 'base/js/plugins/chartist.min.js' %}"></script>
+    <script src="{% static 'base/js/plugins/bootstrap-notify.js' %}"></script>
+    <script src="{% static 'base/js/material-dashboard.js' %}"></script>
     ```
 
 

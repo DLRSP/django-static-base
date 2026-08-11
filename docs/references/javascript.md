@@ -9,6 +9,28 @@
     <script src="{% static 'base/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'base/js/bootstrap.bundle.min.js' %}"></script>
     ```
+
+## MATERIAL DASHBOARD (optional theme)
+Creative Tim [Material Dashboard](https://www.creative-tim.com/product/material-dashboard) **v1.1.1** (MIT).
+Naming mirrors Bootstrap: theme entrypoints under `base/js/`; companions under `base/js/plugins/`.
+
+- material.min.js — Material Design Lite ripples / form helpers
+- material-dashboard.js — dashboard shell behaviour
+- chartist.min.js - [0.11.4](https://github.com/gionkunz/chartist-js) (charts used by Material Dashboard)
+- bootstrap-notify.js — toast helper used by Material Dashboard demos/shells
+
+    ```html
+    <script src="{% static 'base/js/jquery.min.js' %}"></script>
+    <script src="{% static 'base/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'base/js/material.min.js' %}"></script>
+    <script src="{% static 'base/js/plugins/chartist.min.js' %}"></script>
+    <script src="{% static 'base/js/plugins/bootstrap-notify.js' %}"></script>
+    <script src="{% static 'base/js/material-dashboard.js' %}"></script>
+    ```
+
+Use with CSS: `{% static 'base/css/material-dashboard.css' %}` (see [Cascading Style Sheets](style.md)).
+Load Google Material Icons from CDN when the theme needs icon glyphs.
+
 ## 01. SMARTMENUS
 - [jquery.smartmenus.min.js] - [1.2.1](https://github.com/vadikom/smartmenus/releases)
 - [jquery.smartmenus.bootstrap-4.min.js] - [0.1.1](https://github.com/vadikom/smartmenus/releases)

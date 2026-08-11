@@ -6,7 +6,7 @@ requires = [
 build-backend = "setuptools.build_meta"
 [project]
 name = "django-static-base"
-description = "Django's application to serve up-to-date common static files (JQuery, Bootstrap, Plugins, ...) as \"base\" static directory"
+description = "Django's application to serve up-to-date common static files (JQuery, Bootstrap, Material Dashboard, Plugins, ...) as \"base\" static directory"
 authors = [
     { name = "DLRSP", email = "dlrsp.dev@gmail.com" },
 ]
@@ -24,6 +24,8 @@ keywords = [
     "static-files",
     "bootstrap",
     "jquery",
+    "material-dashboard",
+    "material",
     "assets",
 ]
 classifiers = [

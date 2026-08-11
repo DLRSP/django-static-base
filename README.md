@@ -10,6 +10,7 @@
 ## GitHub ![GitHub release](https://img.shields.io/github/tag/DLRSP/django-static-base.svg) ![GitHub release](https://img.shields.io/github/release/DLRSP/django-static-base.svg)
 
 ## Test [![codecov.io](https://codecov.io/github/DLRSP/django-static-base/coverage.svg?branch=main)](https://codecov.io/github/DLRSP/django-static-base?branch=main) [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/DLRSP/django-static-base/main.svg)](https://results.pre-commit.ci/latest/github/DLRSP/django-static-base/main) [![gitthub.com](https://github.com/DLRSP/django-static-base/actions/workflows/ci.yaml/badge.svg)](https://github.com/DLRSP/django-static-base/actions/workflows/ci.yaml)
+[![Docs](https://img.shields.io/badge/docs-GitHub_Pages-blue)](https://dlrsp.github.io/django-static-base/)
 
 ## Check Demo Project
 * Check the demo repo on [GitHub](https://github.com/DLRSP/example/tree/django-static-base)
@@ -75,6 +76,20 @@
       <script type="module" src="{% static 'base/js/plugins/instantpage.min.js' %}" defer></script>
     </body>
     </html>
+    ```
+
+5. Optional — **Material Dashboard** (Creative Tim v1.1.1). Same layout as Bootstrap: theme under `base/css` + `base/js`; helpers under `base/js/plugins/`.
+
+    ``` html
+    <link rel="stylesheet" href="{% static 'base/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'base/css/material-dashboard.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+    <script src="{% static 'base/js/jquery.min.js' %}"></script>
+    <script src="{% static 'base/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'base/js/material.min.js' %}"></script>
+    <script src="{% static 'base/js/plugins/chartist.min.js' %}"></script>
+    <script src="{% static 'base/js/plugins/bootstrap-notify.js' %}"></script>
+    <script src="{% static 'base/js/material-dashboard.js' %}"></script>
     ```
 
 ## Run Example Project

@@ -1,5 +1,17 @@
 # Cascading Style Sheets
 
+## PRE-REQ / THEMES
+- bootstrap.css / bootstrap.min.css — [4.6.x](https://getbootstrap.com/docs/4.6/getting-started/download/)
+    ```html
+    <link rel="stylesheet" type="text/css" href="{% static 'base/css/bootstrap.min.css' %}">
+    ```
+- material-dashboard.css — Creative Tim Material Dashboard **v1.1.1** (MIT); optional dashboard theme (parallel to `bootstrap.css`)
+    ```html
+    <link rel="stylesheet" type="text/css" href="{% static 'base/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'base/css/material-dashboard.css' %}">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+    ```
+
 ## 01. SMARTMENUS
 - ?! jquery.smartmenus.min.css - [1.1.1](https://github.com/vadikom/smartmenus/releases)
 - jquery.smartmenus.bootstrap-4.css
