@@ -174,3 +174,9 @@ site
 AGENTS.md
 .**/rules/*.mdc
 .**/commands/*.md
+
+# Agent / local
+.cursor/
+.eggs/
+.cursorignore
+
