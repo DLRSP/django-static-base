@@ -4,7 +4,7 @@
     "js": "https://code.jquery.com/jquery-{version}.min.js",
     "js_map": "https://code.jquery.com/jquery-{version}.min.map"
   },
-  "bootstrap": "5.3.8",
+  "bootstrap": "5.3.9",
   "bootstrap_cdn": {
     "css": "https://cdn.jsdelivr.net/npm/bootstrap@{version}/dist/css/bootstrap.min.css",
     "js": "https://cdn.jsdelivr.net/npm/bootstrap@{version}/dist/js/bootstrap.bundle.min.js",
